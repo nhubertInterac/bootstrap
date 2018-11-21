@@ -12,7 +12,7 @@ aliases:
   <h2>{{ entry.category | capitalize }}</h2>
   <p>{{ entry.description }}</p>
   {% for example in entry.examples %}
-    {% if forloop.first %}<div class="row">{% endif %}
+    {% if forloop.first %}<div class="row">{{ end }}
       <div class="col-sm-6 col-md-4 col-xl-3 mb-3">
         <a href="{{ .Site.BaseURL }}/docs/{{ .Site.Params.docs_version }}/examples/{{ example.name | slugify }}/">
           <img class="img-thumbnail mb-3" src="{{ .Site.BaseURL }}/docs/{{ .Site.Params.docs_version }}/examples/screenshots/{{ example.name | slugify }}.png" alt="{{ example.name }} screenshot" width="960" height="600">
@@ -20,6 +20,6 @@ aliases:
         </a>
         <p class="text-muted">{{ example.description }}</p>
       </div>
-    {% if forloop.last %}</div>{% endif %}
+    {% if forloop.last %}</div>{{ end }}
   {% endfor %}
 {% endfor %}
